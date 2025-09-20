@@ -205,6 +205,7 @@ body {
   scroll-snap-align: start;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 .project-card:hover {
   transform: translateY(-6px);

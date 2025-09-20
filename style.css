@@ -70,6 +70,15 @@ body {
 }
 .slide.active { opacity: 1; }
 
+.download-btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  opacity: 0.9; 
+  mix-blend-mode: overlay; 
+  pointer-events: none; 
+}
 .download-btn {
   position: absolute;
   top: 20px;
@@ -78,7 +87,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 18px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(53, 49, 49, 0.15);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
@@ -120,7 +129,7 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-  opacity: 0.5; 
+  opacity: 0.9; 
   mix-blend-mode: overlay; 
   pointer-events: none; 
 }

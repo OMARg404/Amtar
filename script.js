@@ -123,6 +123,38 @@ startAutoSlide();
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Sticky navbar (JS-only, no CSS changes)
+  (function() {
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+    let isSticky = false;
+    const navHeight = () => nav.getBoundingClientRect().height;
+    const applySticky = () => {
+      if (window.scrollY > 0 && !isSticky) {
+        isSticky = true;
+        document.body.style.paddingTop = navHeight() + 'px';
+        nav.style.position = 'fixed';
+        nav.style.top = '0';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.width = '100%';
+        nav.style.zIndex = '1000';
+      } else if (window.scrollY === 0 && isSticky) {
+        isSticky = false;
+        document.body.style.paddingTop = '';
+        nav.style.position = '';
+        nav.style.top = '';
+        nav.style.left = '';
+        nav.style.right = '';
+        nav.style.width = '';
+        nav.style.zIndex = '';
+      }
+    };
+    window.addEventListener('scroll', applySticky, { passive: true });
+    window.addEventListener('resize', () => { if (isSticky) document.body.style.paddingTop = navHeight() + 'px'; });
+    applySticky();
+  })();
+
   // Tab functionality
   const tabButtons = document.querySelectorAll('.tab-btn');
   tabButtons.forEach(button => {
@@ -189,4 +221,14 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.addEventListener('touchmove', move, { passive: false });
     document.addEventListener('touchend', end);
   })();
+
+  // Like/unlike for project cards
+  document.querySelectorAll('.like-toggle').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const liked = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!liked));
+      btn.textContent = liked ? '♡' : '❤';
+    });
+  });
 });

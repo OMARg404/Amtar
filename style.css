@@ -552,6 +552,7 @@ body {
       margin-top: 10px;
       font-size: 14px;
       line-height: 1.5;
+      text-align: right;
     }
 
     .greencard-footer {
@@ -1028,3 +1029,6 @@ body {
     padding-top: 15px;
     font-size: 14px;
 }
+
+/* About section description alignment */
+.about-section .description { text-align: center; }

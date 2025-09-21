@@ -138,7 +138,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Search functionality
   const searchBtn = document.querySelector('.search-btn');
-  searchBtn.addEventListener('click', function() {
-    console.log('Search clicked');
-    // Add search functionality here
-  });
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function() {
+      console.log('Search clicked');
+    });
+  }
+
+  // ------------------ Requests carousel navigation ------------------
+  (function() {
+    const carousel = document.querySelector('.requests-carousel');
+    const prev = document.querySelector('.requests-nav-btn.left');
+    const next = document.querySelector('.requests-nav-btn.right');
+    if (!carousel || !prev || !next) return;
+
+    const dir = getComputedStyle(carousel).direction || document.documentElement.dir || 'ltr';
+    const directionMultiplier = (dir === 'rtl') ? -1 : 1;
+    const getAmount = () => Math.floor(carousel.clientWidth * 0.9);
+
+    prev.addEventListener('click', () => {
+      carousel.scrollBy({ left: -directionMultiplier * getAmount(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      carousel.scrollBy({ left: directionMultiplier * getAmount(), behavior: 'smooth' });
+    });
+
+    // Drag/Swipe
+    let isDown = false;
+    let lastX = 0;
+    const getX = (e) => (e.touches ? e.touches[0].pageX : e.pageX);
+    const start = (e) => { isDown = true; lastX = getX(e); };
+    const move = (e) => {
+      if (!isDown) return;
+      const x = getX(e);
+      const delta = x - lastX;
+      carousel.scrollBy({ left: -delta, behavior: 'auto' });
+      lastX = x;
+      if (e.cancelable) e.preventDefault();
+    };
+    const end = () => { isDown = false; };
+
+    carousel.addEventListener('mousedown', start);
+    carousel.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', end);
+    carousel.addEventListener('touchstart', start, { passive: true });
+    carousel.addEventListener('touchmove', move, { passive: false });
+    document.addEventListener('touchend', end);
+  })();
+});

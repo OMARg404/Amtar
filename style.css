@@ -382,7 +382,6 @@ body {
   font-size: 12px;
 }
 
-.property-price
 
 /* Requests Section */
 .requests-section {
@@ -492,6 +491,89 @@ body {
   background-color: #0056CC;
 }
 /* Green box*/
+.greencard {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #00332e, #062925);
+      color: white;
+      border-radius: 15px;
+      padding: 15px;
+      width: 40%;
+      margin: 30px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .greencard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .profile-images {
+      display: flex;
+    }
+
+    .profile-images img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid white;
+      margin-left: -10px;
+    }
+    .greenbadge{
+      display: flex;
+      align-items: center;
+      background-color: #178862;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 50px;
+
+    }
+
+    .redbadge {
+      display: flex;
+      align-items: center;
+      background-color: #e63946;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 50px;
+    }
+
+    .redbadge span {
+      margin-left: 5px;
+    }
+
+    .greencard-content {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .greencard-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .cardarrow {
+      width: 25px;
+      height: 25px;
+      background-color: white;
+      color: #00332e;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 /* Services Section */
 .services-section {
   padding: 16px;

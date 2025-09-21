@@ -115,3 +115,30 @@ startAutoSlide();
   carousel.addEventListener("touchmove", move, { passive: false });
   document.addEventListener("touchend", end);
 })();
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Tab functionality
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Search functionality
+  const searchBtn = document.querySelector('.search-btn');
+  searchBtn.addEventListener('click', function() {
+    console.log('Search clicked');
+    // Add search functionality here
+  });

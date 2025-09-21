@@ -41,7 +41,7 @@ body {
 }
 
 /* Slider */
-.slider {
+.slider1 {
   position: relative;
   width: 90%;
   height: 600px;
@@ -51,7 +51,7 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   transition: box-shadow 0.3s ease;
 }
-.slider:hover .slide.active img {
+.slider1:hover .slide.active img {
   filter: brightness(90%);
   transition: filter 0.3s ease;
 }
@@ -151,7 +151,7 @@ body {
   cursor: pointer;
 }
 
-/* Slider nav buttons */
+/* Slider1 Navigation Buttons */
 .nav-btn {
   position: absolute;
   top: 50%;
@@ -182,9 +182,8 @@ body {
   );
   opacity: 0.9;
 }
-
 .projects-section {
-  max-width: 1200px;
+  max-width: 80%;
   margin: 50px auto;
   padding: 0 15px;
 }
@@ -192,10 +191,17 @@ body {
   margin-bottom: 30px;
   text-align: center;
 }
-.projects-header h2 { font-size: 24px; font-weight: bold; }
-.projects-header p { font-size: 16px; color: #666; margin-top: 8px; }
+.projects-header h2 { 
+  font-size: 24px; 
+  font-weight: bold; 
+}
+.projects-header p { 
+  font-size: 16px; 
+  color: #666; 
+  margin-top: 8px;
+}
 
-/* Carousel */
+/* Project Carousel */
 .projects-wrapper { position: relative; }
 .projects-carousel {
   display: flex;
@@ -207,7 +213,7 @@ body {
 .projects-carousel::-webkit-scrollbar { display: none; }
 
 .project-card {
-  flex: 0 0 350px;
+  flex: 0 0 400px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
@@ -221,8 +227,16 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-.project-image { position: relative; height: 200px; overflow: hidden; }
-.project-image img { width: 100%; height: 100%; object-fit: cover; }
+.project-image { 
+  position: relative; 
+  height: 200px; 
+  overflow: hidden; 
+}
+.project-image img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
 .badge {
   position: absolute;
   top: 10px;
@@ -233,10 +247,21 @@ body {
   padding: 4px 8px;
   border-radius: 6px;
 }
-
+.like-toggle {
+  left:10px; 
+  right:auto;
+  z-index: 15;
+}
 .project-content { padding: 16px; }
-.project-content h3 { font-size: 18px; margin-bottom: 8px; }
-.project-content p { font-size: 14px; color: #777; margin-bottom: 12px; }
+.project-content h3 { 
+  font-size: 18px; 
+  margin-bottom: 8px; 
+}
+.project-content p { 
+  font-size: 14px; 
+  color: #777; 
+  margin-bottom: 12px; 
+}
 .project-info {
   display: flex;
   justify-content: space-between;
@@ -245,7 +270,7 @@ body {
   color: #444;
 }
 
-/* Carousel nav buttons */
+/* Project Carousel nav buttons */
 .proj-nav-btn {
   position: absolute;
   top: 50%;
@@ -257,21 +282,9 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-.proj-nav-btn.left { right: -20px; }
-.proj-nav-btn.right { left: -20px; }
+.proj-nav-btn.left { right: -60px; }
+.proj-nav-btn.right { left: -60px; }
 
-
-/* slider2 */
-.content-section,
-.main-content {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* ensure children take full width */
-  max-width: 1200px;
-  width: 95%;
-  margin: 40px auto; /* center the block */
-}
 
 /* Navigation Tabs */
 .nav-tabs {
@@ -285,7 +298,7 @@ body {
   background: none;
   border: none;
   padding: 16px 20px;
-  font-size: 20px;
+  font-size: 23px;
   color: #666;
   cursor: pointer;
   border-bottom: 2px solid transparent;
@@ -298,7 +311,7 @@ body {
   font-weight: 600;
 }
 
-/* Search Section */
+/* Search Filter Section */
 .search-section {
   padding: 16px;
   background-color: white;
@@ -307,14 +320,25 @@ body {
   align-items: center;
   gap: 12px;
 }
-
+.search-btn {
+  background-color: #007AFF;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.search-btn:hover {
+  background-color: #0056CC;
+}
 .search-filters {
   display: flex;
   gap: 8px;
   flex: 1;
   overflow-x: auto;
 }
-
 .filter-btn {
   background-color: #f5f5f5;
   border: 1px solid #e0e0e0;
@@ -332,21 +356,6 @@ body {
   background-color: #4CAF50;
   color: white;
   border-color: #4CAF50;
-}
-
-.search-btn {
-  background-color: #007AFF;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.search-btn:hover {
-  background-color: #0056CC;
 }
 
 /* Property Card */
@@ -370,7 +379,14 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
+.property-badge-text{
+  position:absolute; 
+  top:16px; 
+  right:96px; 
+  color:#fff; 
+  font-size:16px; 
+  font-weight:600;
+}
 .property-badge {
   position: absolute;
   top: 16px;
@@ -381,34 +397,32 @@ body {
   border-radius: 6px;
   font-size: 12px;
 }
+.property-price,.property-specs{
+  display: flex;
+}
 
-
-/* Requests Section */
+/* Real Estate Requests Section */
 .requests-section {
   padding: 16px;
   background-color: white;
   margin-top: 8px;
 }
-
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
-
 .section-header h2 {
   font-size: 18px;
   font-weight: 600;
   color: #333;
 }
-
 .view-all {
   color: #007AFF;
   text-decoration: none;
   font-size: 14px;
 }
-
 .request-card-container {
   display: flex;
   flex-direction: row;
@@ -575,6 +589,7 @@ body {
       font-weight: bold;
       cursor: pointer;
     }
+
 /* Services Section */
 .services-section {
   padding: 16px;
@@ -674,11 +689,6 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.map-svg {
-  width: 100%;
-  height: 100%;
-}
-
 .marker {
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -704,20 +714,11 @@ body {
   }
 }
 
-.map-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
 .map-arrow:hover {
   background-color: #f0f0f0;
   transform: translateX(-3px);
 }
+
 /* Cities Section */
 .cities-section {
   padding: 16px;
@@ -780,6 +781,7 @@ body {
   padding: 40px 20px;
   background-color: #f8f9fa;
 }
+.about-section .description { text-align: center; }
 .greeting{
     color: #495986;
     font-size: 1.5rem;
@@ -802,7 +804,7 @@ body {
   margin: 0 auto;
   background-color: white;
   color: #333;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #2aa083;
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 14px;
@@ -876,7 +878,7 @@ body {
   margin: 0 auto;
   background-color: white;
   color: #333;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #2aa083;
   padding: 15px 30px;
   border-radius: 10px;
   font-size: 14px;
@@ -886,7 +888,7 @@ body {
 
 .load-more-btn:hover {
   background-color: #f8f9fa;
-  border-color: #ccc;
+  border-color: #2aa083;
 }
 
 /* Partners Section */
@@ -960,7 +962,7 @@ body {
   transition: background-color 0.2s;
 }
 
-.download-btn:hover {
+.appdownload-btn:hover {
   background-color: #5a4fcf;
 }
 
@@ -1030,5 +1032,4 @@ body {
     font-size: 14px;
 }
 
-/* About section description alignment */
-.about-section .description { text-align: center; }
+

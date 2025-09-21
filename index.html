@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>منصة امتار العقارية</title>
   <link rel="stylesheet" href="style.css">
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7506942b61.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -288,55 +289,286 @@
 
       
       <!-- Services Section -->
-      <section class="services-section">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
-              <path d="M3 9L12 2L21 9V20A2 2 0 0 1 19 22H5A2 2 0 0 1 3 20V9Z" stroke="#4CAF50" stroke-width="2" fill="#E8F5E8"/>
-              <polyline points="9,22 9,12 15,12 15,22" stroke="#4CAF50" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3>إيجار يومي</h3>
-            <p>البحث عن عقار للإيجار اليومي بأسعار تنافسية</p>
-          </div>
-        </div>
+<section class="services-section">
+  <div class="projects-wrapper">
+    <button class="proj-nav-btn left"><</button>
+    <div class="projects-carousel">
 
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
-              <path d="M21 10C21 17 12 23 12 23S3 17 3 10A9 9 0 0 1 21 10Z" stroke="#2196F3" stroke-width="2" fill="#E3F2FD"/>
-              <circle cx="12" cy="10" r="3" stroke="#2196F3" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3>استكشاف الآن</h3>
-            <p>اكتشف أحدث العقارات في منطقتك</p>
-          </div>
+      <div class="service-card">
+        <div class="service-content">
+          <h3>إيجار يومي</h3>
+          <p>البحث عن عقار للإيجار اليومي بأسعار تنافسية</p>
         </div>
-      </section>
+        <div class="service-icon">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9L12 2L21 9V20A2 2 0 0 1 19 22H5A2 2 0 0 1 3 20V9Z" stroke="#4CAF50" stroke-width="2" fill="#E8F5E8"/>
+            <polyline points="9,22 9,12 15,12 15,22" stroke="#4CAF50" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-content">
+          <h3>استكشاف الآن</h3>
+          <p>اكتشف أحدث العقارات في منطقتك</p>
+        </div>
+        <div class="service-icon">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+            <path d="M21 10C21 17 12 23 12 23S3 17 3 10A9 9 0 0 1 21 10Z" stroke="#2196F3" stroke-width="2" fill="#E3F2FD"/>
+            <circle cx="12" cy="10" r="3" stroke="#2196F3" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+    <button class="proj-nav-btn right">></button>
+    <div class="carousel-dots" style="text-align:center; margin-top:8px;">
+      <button data-index="0" aria-label="slide 1" style="background:none;border:none;font-size:18px;opacity:1;cursor:pointer">•</button>
+      <button data-index="1" aria-label="slide 2" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
+    </div>
+  </div>
+</section>
+
 
       <!--map button card-->
+    <section class="map-section">
+      <div class="map-card">
+        <div class="map-content">
+          <div class="map-text">
+            <h3 class="map-title">العروض على الخريطة</h3>
+            <p class="map-description">ابحث عن العقارات في المنطقة التي تناسبك</p>
+          </div>
+          
+          <div class="map-container">
+            <div class="map-background">
+              <svg viewBox="0 0 200 120" class="map-svg">
+                <!-- Map background -->
+                <rect width="200" height="120" fill="#e8f4f8"/>
+                
+                <!-- Roads/paths -->
+                <path d="M0,60 Q50,40 100,60 T200,60" stroke="#b8d4e3" stroke-width="3" fill="none"/>
+                <path d="M60,0 Q80,30 100,60 Q120,90 140,120" stroke="#b8d4e3" stroke-width="2" fill="none"/>
+                <path d="M0,90 Q60,80 120,90 T200,90" stroke="#b8d4e3" stroke-width="2" fill="none"/>
+                
+                <!-- Location markers -->
+                <g class="marker" transform="translate(80,45)">
+                  <circle cx="0" cy="0" r="8" fill="#ff6b6b"/>
+                  <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+                </g>
+                
+                <g class="marker primary" transform="translate(120,70)">
+                  <circle cx="0" cy="0" r="10" fill="#4ecdc4"/>
+                  <circle cx="0" cy="0" r="6" fill="#ffffff"/>
+                  <circle cx="0" cy="0" r="3" fill="#4ecdc4"/>
+                </g>
+                
+                <!-- Additional decorative elements -->
+                <circle cx="40" cy="30" r="2" fill="#b8d4e3"/>
+                <circle cx="160" cy="40" r="2" fill="#b8d4e3"/>
+                <circle cx="180" cy="80" r="2" fill="#b8d4e3"/>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="map-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
       <!-- Cities Section -->
       <section class="cities-section">
         <div class="section-header">
           <h2>المدن</h2>
           <a href="#" class="view-all">عرض الكل</a>
         </div>
-        <div class="cities-grid">
-          <div class="city-card">
-            <img src="https://dummyimage.com/200x150/4682B4/FFFFFF?text=Jeddah" alt="جدة" referrerpolicy="no-referrer">
-            <span class="city-name">جدة</span>
+        <div class="projects-wrapper">
+          <button class="proj-nav-btn left"><</button>
+          <div class="cities-grid projects-carousel">
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/4682B4/FFFFFF?text=Jeddah" alt="جدة" referrerpolicy="no-referrer">
+              <span class="city-name">جدة</span>
+            </div>
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/CD853F/FFFFFF?text=Riyadh" alt="الرياض" referrerpolicy="no-referrer">
+              <span class="city-name">الرياض</span>
+            </div>
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/2E8B57/FFFFFF?text=Dammam" alt="الدمام" referrerpolicy="no-referrer">
+              <span class="city-name">الدمام</span>
+            </div>
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/8B0000/FFFFFF?text=Mecca" alt="مكة" referrerpolicy="no-referrer">
+              <span class="city-name">مكة</span>
+            </div>
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/556B2F/FFFFFF?text=Medina" alt="المدينة" referrerpolicy="no-referrer">
+              <span class="city-name">المدينة</span>
+            </div>
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/1E90FF/FFFFFF?text=Abha" alt="أبها" referrerpolicy="no-referrer">
+              <span class="city-name">أبها</span>
+            </div>
+            <div class="city-card">
+              <img src="https://dummyimage.com/400x260/DAA520/FFFFFF?text=Taif" alt="الطائف" referrerpolicy="no-referrer">
+              <span class="city-name">الطائف</span>
+            </div>
           </div>
-          <div class="city-card">
-            <img src="https://dummyimage.com/200x150/CD853F/FFFFFF?text=Riyadh" alt="الرياض" referrerpolicy="no-referrer">
-            <span class="city-name">الرياض</span>
+          <button class="proj-nav-btn right">></button>
+          <div class="carousel-dots" style="text-align:center; margin-top:8px;">
+            <button data-index="0" aria-label="slide 1" style="background:none;border:none;font-size:18px;opacity:1;cursor:pointer">•</button>
+            <button data-index="1" aria-label="slide 2" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
+            <button data-index="2" aria-label="slide 3" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
+            <button data-index="3" aria-label="slide 4" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
+            <button data-index="4" aria-label="slide 5" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
+            <button data-index="5" aria-label="slide 6" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
+            <button data-index="6" aria-label="slide 7" style="background:none;border:none;font-size:18px;opacity:0.4;cursor:pointer">•</button>
           </div>
         </div>
       </section>
 
+      <section class="about-section">
+        <span class="greeting">من نحن</span>
+        <h1 class="main-title">منصة صك العقارية</h1>
+        <p class="description">
+          في منصة صك العقارية يمكنك في الحال العثور على
+         <br> العقارات المناسبة لك عن طريق البحث المتقدم
+          للعقارات المعلن عنها من قبل مطوري عقاريين محترفين
+         <br> الأمر الذي يضمن لك الحصول على عقار مناسب وبأفضل
+          الأسعار وأفضل جودة للعقار المطلوب والمضمون بجودة
+        </p>
+        <button class="morebtn"> المزيد من المعلومات</button>
+        
+        <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2 class="faq-title">الأسئلة الشائعة</h2>
+      <h3 class="faq-subtitle">ماذا تريد أن تعرف؟</h3>
+      <p class="faq-description">هنا الأسئلة الشائعة التي يسألها عملاؤنا بصفة مستمرة</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-icon">+</span>
+            <span>عليك أن تعلم أن هناك أنواع مختلفة من العقارات المتاحة؟</span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-icon">+</span>
+            <span>عليك أن تعلم أن هناك أنواع مختلفة من العقارات المتاحة؟</span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-icon">+</span>
+            <span>هل يمكنني أن أعرف المزيد عن الخدمات والاستشارات المجانية؟</span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-icon">+</span>
+            <span>هل يمكنني أن أعرف المزيد عن الخدمات والاستشارات المجانية؟</span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-icon">+</span>
+            <span>عليك أن تعلم أن هناك أنواع مختلفة من العقارات المتاحة؟</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="load-more-btn">تحميل المزيد من الأسئلة الشائعة</button>
+    </section>
+    <h2 class="partners-title">شركاء النجاح</h2>
+      
+      <div class="partners-logos">
+        <div class="partner-logo">
+          <img src="https://dummyimage.com/120x60/f5f5f5/333333?text=Partner+Logo" alt="رقمنة" referrerpolicy="no-referrer">
+        </div>
+        <div class="partner-logo">
+          <img src="https://dummyimage.com/120x60/f5f5f5/333333?text=Partner+Logo" alt="Partner Logo" referrerpolicy="no-referrer">
+        </div>
+      </div>
+
+      <div class="app-section">
+        <div class="app-info">
+          <h3 class="app-title">وسيط عقاري?</h3>
+          <p class="appdescription">تطبيق جوال لوسطاء العقارات</p>
+          <button class="appdownload-btn">تحميل التطبيق</button>
+        </div>
+        <div class="app-image">
+          <img src="https://dummyimage.com/200x300/4285f4/ffffff?text=Mobile+App" alt="تطبيق الجوال" referrerpolicy="no-referrer">
+        </div>
+      </div>
+
+      <div class="bottom-logos">
+        <img src="https://dummyimage.com/80x40/f5f5f5/333333?text=Logo1" alt="Logo 1" referrerpolicy="no-referrer">
+        <img src="https://dummyimage.com/80x40/f5f5f5/333333?text=Logo2" alt="Logo 2" referrerpolicy="no-referrer">
+        <img src="https://dummyimage.com/80x40/f5f5f5/333333?text=Logo3" alt="Logo 3" referrerpolicy="no-referrer">
+        <img src="https://dummyimage.com/80x40/f5f5f5/333333?text=Logo4" alt="Logo 4" referrerpolicy="no-referrer">
+      </div>
+      </section>
 
 
+<!-- Footer -->
+    <footer class="footer text-center bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <!-- نبذة عن المنصة -->
+                <div class="col-md-4 mb-3">
+                    <h5>نبذة عن المنصة</h5>
+                    <p>
+                        منصة امتار هي الوجهة الأولى للباحثين عن العقارات في المملكة العربية السعودية. توفر خدمات مثل تسهيل البيع والشراء والاستثمار العقاري، وذلك عبر فريق من المتخصصين لضمان تجربة غنية بجودة وأمان.
+                    </p>
+                    <p>
+                        نسعى لتسهيل عملية البحث عن العقار المناسب من خلال تقنيات حديثة وخدمات متطورة تلبي احتياجات عملائنا الكرام.
+                    </p>
+                </div>
+
+                <!-- روابط مهمة -->
+                <div class="col-md-4 mb-3">
+                    <h5>روابط مهمة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">السياسات والأحكام</a></li>
+                    </ul>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-light btn-sm">
+            <i class="fa fa-map"></i> خريطة الموقع
+          </button>
+                    </div>
+                </div>
+
+                <!-- تواصل معنا -->
+                <div class="col-md-4 mb-3">
+                    <h5>تواصل معنا</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone"></i> +966502690876</li>
+                        <li><i class="fa fa-envelope"></i> amtaraqar@gmail.com</li>
+                        <li><i class="fa fa-map-marker"></i> السعودية - الرياض</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- حقوق النشر -->
+            <div class="mt-3">
+                © 2024 منصة العقارات - جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

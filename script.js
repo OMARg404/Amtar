@@ -40,81 +40,86 @@ showSlide(currentIndex);
 startAutoSlide();
 
 
-// ------------------ Projects carousel navigation (RTL-safe) ------------------
+// ------------------ Carousels (projects + services) with nav buttons and dots ------------------
 (function() {
-  const carousel = document.querySelector(".projects-carousel");
-  const prev = document.querySelector(".proj-nav-btn.left");
-  const next = document.querySelector(".proj-nav-btn.right");
-  if (!carousel || !prev || !next) return;
+  const wrappers = document.querySelectorAll('.projects-wrapper');
+  wrappers.forEach((wrapper) => {
+    const carousel = wrapper.querySelector('.projects-carousel');
+    const prev = wrapper.querySelector('.proj-nav-btn.left');
+    const next = wrapper.querySelector('.proj-nav-btn.right');
+    if (!carousel || !prev || !next) return;
 
-  // Determine logical direction multiplier.
-  // In LTR: multiplier = 1  -> next => +amount, prev => -amount
-  // In RTL: multiplier = -1 -> signs flip so visual direction matches button labels
-  const dir = getComputedStyle(carousel).direction || document.documentElement.dir || 'ltr';
-  const directionMultiplier = (dir === 'rtl') ? -1 : 1;
+    const dir = getComputedStyle(carousel).direction || document.documentElement.dir || 'ltr';
+    const directionMultiplier = (dir === 'rtl') ? -1 : 1;
+    const getAmount = () => Math.floor(carousel.clientWidth * 0.9);
 
-  const getAmount = () => Math.floor(carousel.clientWidth * 0.9);
+    prev.addEventListener('click', () => {
+      carousel.scrollBy({ left: -directionMultiplier * getAmount(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      carousel.scrollBy({ left: directionMultiplier * getAmount(), behavior: 'smooth' });
+    });
 
-  prev.addEventListener("click", () => {
-    // "Prev" should move to previous items (visual left or right depending on RTL)
-    carousel.scrollBy({ left: -directionMultiplier * getAmount(), behavior: "smooth" });
-  });
+    // Dots (if present)
+    const dots = wrapper.querySelectorAll('.carousel-dots button');
+    const items = carousel ? Array.from(carousel.children) : [];
 
-  next.addEventListener("click", () => {
-    // "Next" should move to next items
-    carousel.scrollBy({ left: directionMultiplier * getAmount(), behavior: "smooth" });
-  });
-
-  // Optional: keyboard support (← / →)
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      // ArrowLeft moves to previous visually
-      carousel.scrollBy({ left: -directionMultiplier * getAmount(), behavior: "smooth" });
-    } else if (e.key === "ArrowRight") {
-      carousel.scrollBy({ left: directionMultiplier * getAmount(), behavior: "smooth" });
+    function updateDotsByIndex(index) {
+      if (!dots.length) return;
+      dots.forEach((d, i) => { d.style.opacity = (i === index ? '1' : '0.4'); });
     }
+
+    function getClosestIndex() {
+      if (!items.length) return 0;
+      const scrollLeft = carousel.scrollLeft;
+      let closest = 0, min = Infinity;
+      items.forEach((el, i) => {
+        const dist = Math.abs(el.offsetLeft - scrollLeft);
+        if (dist < min) { min = dist; closest = i; }
+      });
+      return closest;
+    }
+
+    carousel.addEventListener('scroll', () => {
+      updateDotsByIndex(getClosestIndex());
+    });
+
+    dots.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const target = items[i];
+        if (target) carousel.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+      });
+    });
+  });
+
+  // Drag/Swipe for all such carousels
+  document.querySelectorAll('.projects-carousel').forEach((carousel) => {
+    let isDown = false;
+    let lastX = 0;
+    const getX = (e) => (e.touches ? e.touches[0].pageX : e.pageX);
+
+    const start = (e) => { isDown = true; lastX = getX(e); carousel.classList.add('dragging'); };
+    const move = (e) => {
+      if (!isDown) return;
+      const x = getX(e);
+      const delta = x - lastX;
+      carousel.scrollBy({ left: -delta, behavior: 'auto' });
+      lastX = x;
+      if (e.cancelable) e.preventDefault();
+    };
+    const end = () => { isDown = false; carousel.classList.remove('dragging'); };
+
+    carousel.addEventListener('mousedown', start);
+    carousel.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', end);
+    carousel.addEventListener('touchstart', start, { passive: true });
+    carousel.addEventListener('touchmove', move, { passive: false });
+    document.addEventListener('touchend', end);
   });
 })();
 
 
-// ------------------ Drag/Swipe for projects carousel ------------------
-(function() {
-  const carousel = document.querySelector(".projects-carousel");
-  if (!carousel) return;
-
-  let isDown = false;
-  let lastX = 0;
-  const getX = (e) => (e.touches ? e.touches[0].pageX : e.pageX);
-
-  const start = (e) => {
-    isDown = true;
-    lastX = getX(e);
-    carousel.classList.add("dragging");
-  };
-
-  const move = (e) => {
-    if (!isDown) return;
-    const x = getX(e);
-    const delta = x - lastX;
-    // drag direction should remain consistent regardless of RTL — using delta to scroll
-    carousel.scrollBy({ left: -delta, behavior: "auto" });
-    lastX = x;
-    if (e.cancelable) e.preventDefault();
-  };
-
-  const end = () => {
-    isDown = false;
-    carousel.classList.remove("dragging");
-  };
-
-  carousel.addEventListener("mousedown", start);
-  carousel.addEventListener("mousemove", move);
-  document.addEventListener("mouseup", end);
-
-  carousel.addEventListener("touchstart", start, { passive: true });
-  carousel.addEventListener("touchmove", move, { passive: false });
-  document.addEventListener("touchend", end);
-})();
+// (handled above for all instances)
 
 
 document.addEventListener('DOMContentLoaded', function() {
